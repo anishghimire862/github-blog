@@ -1,119 +1,57 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from '@/components/HelloWorld.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <div class="flex h-screen">
+    <div class="m-auto space-y-6">
+      <div class="flex justify-center space-x-6">
+        <RouterLink
+          class="inline-flex items-center py-2 px-5 rounded-full text-sm border border-gray-500 font-medium hover:cursor-pointer"
+          to="/"
+        >
+          Home
+        </RouterLink>
+        <RouterLink
+          class="inline-flex items-center py-2 px-5 rounded-full text-sm border border-gray-500 font-medium hover:cursor-pointer"
+          to="/about"
+        >
+          About
+        </RouterLink>
+        <RouterLink
+          class="inline-flex items-center py-2 px-5 rounded-full text-sm border border-gray-500 font-medium hover:cursor-pointer"
+          to="/blog"
+        >
+          Blog
+        </RouterLink>
+      </div>
+      <div class="border-t border-gray-300" />
+      <main>
+        <router-view />
+      </main>
+      <div class="border-t border-gray-300" />
+      <div class="flex justify-center space-x-4">
+        <git-hub-icon
+            class="w-5 h-auto text-black-500 hover:text-blue-500 hover:cursor-pointer"
+        />
+        <linkedin-icon
+            class="w-5 h-auto text-black-500 hover:text-blue-500 hover:cursor-pointer"
+        />
+        <twitter-icon
+            class="w-5 h-auto text-black-500 hover:text-blue-500 hover:cursor-pointer"
+        />
+      </div>
     </div>
-  </header>
-
-  <RouterView />
+  </div>
 </template>
+<script>
+import { RouterView } from 'vue-router'
+import GitHubIcon from '@/components/icons/GitHubIcon.vue'
+import LinkedinIcon from '@/components/icons/LinkedinIcon.vue'
+import TwitterIcon from '@/components/icons/TwitterIcon.vue'
 
-<style>
-@import '@/assets/base.css';
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
-}
-
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+export default {
+  components: {
+    RouterView,
+    GitHubIcon,
+    LinkedinIcon,
+    TwitterIcon,
   }
 }
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
+</script>
